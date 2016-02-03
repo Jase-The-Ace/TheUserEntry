@@ -1,5 +1,6 @@
 package com.jessicardo.theuserentry;
 
+import com.firebase.client.Firebase;
 import com.jessicardo.theuserentry.di.AppModule;
 import com.jessicardo.theuserentry.util.HelperUtil;
 
@@ -36,6 +37,8 @@ public class App extends Application {
         mObjectGraph = ObjectGraph.create(new AppModule());
 
         mIsTablet = HelperUtil.isTablet(this);
+
+        Firebase.setAndroidContext(this);
 
     }
 

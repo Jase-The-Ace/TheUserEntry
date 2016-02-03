@@ -31,4 +31,12 @@
         <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
     </style>
 
+    <style name="HeaderTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/gulf_blue</item>
+        <item name="fontName">robotoslab_regular</item>
+        <item name="android:textSize">@dimen/title_text_size</item>
+    </style>
+
 </resources>

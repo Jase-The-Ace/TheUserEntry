@@ -6,4 +6,7 @@
     <string name="input_type">Input Type</string>
     <string name="scan_drivers_license">Scan Drivers License</string>
     <string name="enter_manually">Enter Manually</string>
+
+    <string name="no_list_of_persons">No List of Persons</string>
+    <string name="list_of_persons">List Of Persons</string>
 </resources>

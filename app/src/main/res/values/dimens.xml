@@ -23,4 +23,6 @@
     <dimen name="person_list_row_padding">10dp</dimen>
     <dimen name="footer_progress_view_height">50dp</dimen>
 
+    <dimen name="home_padding">10dp</dimen>
+
 </resources>

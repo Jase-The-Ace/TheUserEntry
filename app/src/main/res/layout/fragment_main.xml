@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:padding="@dimen/home_padding"
     android:layout_height="match_parent">
+
+    <com.jessicardo.theuserentry.ui.common.widgets.FontedTextView
+        android:id="@+id/title"
+        style="@style/HeaderTitle"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="@dimen/home_padding"
+        tools:text="No List of Persons" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title"
+        android:choiceMode="singleChoice"
+        android:scrollbars="vertical"
+        android:layout_above="@+id/add"
+        android:divider="@color/transparent"
+        android:dividerHeight="1dp" />
+
+    <ImageView
+        android:id="@+id/add"
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bg_add_button_white"
+        android:translationY="-200dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>
