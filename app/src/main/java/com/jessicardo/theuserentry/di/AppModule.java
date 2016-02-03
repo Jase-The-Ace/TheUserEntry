@@ -18,6 +18,8 @@ import com.jessicardo.theuserentry.ui.common.AbstractBaseActivity;
 import com.jessicardo.theuserentry.ui.common.BaseFragment;
 import com.jessicardo.theuserentry.ui.common.MainActivity;
 import com.jessicardo.theuserentry.ui.common.MainFragment;
+import com.jessicardo.theuserentry.ui.person.activities.PersonDetailActivity;
+import com.jessicardo.theuserentry.ui.person.fragments.PersonDetailFragment;
 import com.path.android.jobqueue.JobManager;
 
 import javax.inject.Singleton;
@@ -36,9 +38,11 @@ import de.greenrobot.event.EventBus;
                 AbstractBaseActivity.class,
                 EntryActivity.class,
                 MainActivity.class,
+                PersonDetailActivity.class,
                 // Fragments
                 BaseFragment.class,
                 MainFragment.class,
+                PersonDetailFragment.class,
                 // Views
                 // Jobs
                 BaseJob.class,

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/alabster">
+
+    <com.jessicardo.theuserentry.ui.common.widgets.LockableScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_above="@+id/done_layout">
+
+        <io.codetail.widget.RevealFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/bottom_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:paddingTop="@dimen/add_contact_top_padding_with_image">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/first_name_edittext_container"
+                    android:hint="@string/first_name"
+                    style="@style/AddContactEditTextContainer">
+
+                    <com.jessicardo.theuserentry.ui.common.widgets.FontedEditText
+                        android:id="@+id/first_name_edittext"
+                        style="@style/AddContactEditText"
+                        android:hint="@string/first_name"
+                        android:inputType="textPersonName|textCapSentences"
+                        android:textSize="@dimen/subtitle_text_size"
+                        android:layout_height="match_parent" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/last_name_edittext_container"
+                    style="@style/AddContactEditTextContainer"
+                    android:hint="@string/last_name"
+                    android:layout_below="@+id/first_name_edittext_container">
+
+                    <com.jessicardo.theuserentry.ui.common.widgets.FontedEditText
+                        android:id="@+id/last_name_edittext"
+                        style="@style/AddContactEditText"
+                        android:hint="@string/last_name"
+                        android:inputType="textPersonName|textCapSentences" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/dob_edittext_container"
+                    style="@style/AddContactEditTextContainer"
+                    android:hint="@string/date_of_birth"
+                    android:layout_below="@+id/last_name_edittext_container">
+
+                    <com.jessicardo.theuserentry.ui.common.widgets.FontedEditText
+                        android:id="@+id/dob_edittext"
+                        style="@style/AddContactEditText"
+                        android:focusableInTouchMode="false"
+                        android:hint="@string/date_of_birth"
+                        android:inputType="textPersonName" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/zipcode_edittext_container"
+                    style="@style/AddContactEditTextContainer"
+                    android:hint="@string/zipcode"
+                    android:layout_below="@+id/dob_edittext_container">
+
+                    <com.jessicardo.theuserentry.ui.common.widgets.FontedEditText
+                        android:id="@+id/zipcode_edittext"
+                        style="@style/AddContactEditText"
+                        android:hint="@string/zipcode"
+                        android:inputType="numberSigned" />
+                </android.support.design.widget.TextInputLayout>
+
+
+            </RelativeLayout>
+        </io.codetail.widget.RevealFrameLayout>
+    </com.jessicardo.theuserentry.ui.common.widgets.LockableScrollView>
+
+    <RelativeLayout
+        android:id="@+id/done_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bottom_view_height"
+        android:layout_alignParentBottom="true"
+        android:background="@color/alabster"
+        android:paddingLeft="@dimen/add_contact_left_right_padding"
+        android:paddingRight="@dimen/add_contact_left_right_padding">
+
+        <io.codetail.widget.RevealFrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true">
+
+            <com.jessicardo.theuserentry.ui.common.widgets.FontedButton
+                android:id="@+id/done_button"
+                style="@style/ButtonWhite"
+                android:layout_width="100dp" />
+        </io.codetail.widget.RevealFrameLayout>
+    </RelativeLayout>
+
+    <com.jessicardo.theuserentry.ui.common.widgets.CircleViewWithString
+        android:id="@+id/circle_view"
+        android:layout_width="@dimen/contact_pic_image_view_height"
+        android:layout_height="@dimen/contact_pic_image_view_height"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/add_contact_left_right_padding"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp" />
+
+</RelativeLayout>

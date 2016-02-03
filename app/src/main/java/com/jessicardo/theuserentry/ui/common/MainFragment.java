@@ -9,7 +9,9 @@ import com.jessicardo.theuserentry.events.FetchedPersonsEvent;
 import com.jessicardo.theuserentry.model.PersonModel;
 import com.jessicardo.theuserentry.ui.common.interfaces.ListItemSelectedListener;
 import com.jessicardo.theuserentry.ui.common.interfaces.OnCompletionCallback;
+import com.jessicardo.theuserentry.ui.person.activities.PersonDetailActivity;
 import com.jessicardo.theuserentry.ui.person.adapters.PersonListAdapter;
+import com.jessicardo.theuserentry.ui.person.fragments.PersonDetailFragment;
 import com.jessicardo.theuserentry.ui.person.viewmodel.PersonInfo;
 import com.jessicardo.theuserentry.util.BottomSheetHelper;
 import com.jessicardo.theuserentry.util.FontType;
@@ -65,6 +67,8 @@ public class MainFragment extends BaseFragment {
 
     @InjectView(R.id.recycler_view)
     protected RecyclerView mRecyclerView;
+
+    private boolean mClicked;
 
     private Handler mHandler = new Handler();
 
@@ -129,7 +133,30 @@ public class MainFragment extends BaseFragment {
             @SuppressLint("NewApi")
             @Override
             public void onListItemSelected(int position, View view) {
-                // TODO: launch detail screen to edit
+                if (mClicked) {
+                    return;
+                }
+                mClicked = true;
+
+                PersonInfo contact = mData.get(position);
+
+                View circleView = null;
+
+                circleView = view.findViewById(R.id.circle_view);
+
+                List<View> viewMap = new ArrayList<>();
+                viewMap.add(circleView);
+
+                String imageViewTransitionName = "";
+                if (isPostLollipop()) {
+                    imageViewTransitionName = circleView.getTransitionName();
+                }
+
+                PersonDetailFragment fragment = PersonDetailFragment.newInstance(
+                        String.valueOf(contact.getId()),
+                        imageViewTransitionName);
+                replaceFragmentInActivity(fragment, PersonDetailFragment.class.getSimpleName(),
+                        viewMap);
             }
         });
 
@@ -179,7 +206,7 @@ public class MainFragment extends BaseFragment {
     }
 
     protected void launchAddPersonActivity() {
-        // TODO: launch sign up form
+        startActivity(PersonDetailActivity.newIntent(getActivity()));
     }
 
     private void loadData() {

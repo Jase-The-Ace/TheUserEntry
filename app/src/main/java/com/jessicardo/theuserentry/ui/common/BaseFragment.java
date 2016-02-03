@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.Toolbar;
@@ -227,6 +228,22 @@ public class BaseFragment extends Fragment implements LifecycleProvider, OnFragm
     protected void showLoader() {
         getBaseActivity().showLoader();
     }
+
+    protected void showSoftKeyboard(final View view) {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // workaround for HTC bug were multiple cursors are being shown
+                InputMethodManager imm = (InputMethodManager)
+                        getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                view.setFocusableInTouchMode(true);
+                view.setFocusable(true);
+                view.requestFocus();
+                imm.showSoftInput(view, 0);
+            }
+        }, 250);
+    }
+
 
     // region ActionBar methods
 

@@ -13,4 +13,15 @@
     <string name="cancel">Cancel</string>
     <string name="set">Set</string>
     <string name="out_of_range_date_message">Date selected is out of range</string>
+
+    <string name="create">Create</string>
+    <string name="update">Update</string>
+    <string name="add_person">Add Person</string>
+    <string name="update_person">Update Person</string>
+
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="user_must_be_over_15">User must be over the age of 15</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="zipcode">Zipcode</string>
 </resources>

@@ -26,6 +26,11 @@
             android:windowSoftInputMode="adjustPan"
             android:label="@string/home"/>
 
+        <activity
+            android:name=".ui.person.activities.PersonDetailActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:windowSoftInputMode="adjustPan"/>
+
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
