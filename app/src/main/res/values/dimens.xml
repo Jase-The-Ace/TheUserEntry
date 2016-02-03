@@ -25,4 +25,8 @@
 
     <dimen name="home_padding">10dp</dimen>
 
+    <dimen name="dialog_width">280dp</dimen>
+    <dimen name="dialog_date_width">300dp</dimen>
+    <dimen name="dialog_min_height">214dp</dimen>
+
 </resources>
