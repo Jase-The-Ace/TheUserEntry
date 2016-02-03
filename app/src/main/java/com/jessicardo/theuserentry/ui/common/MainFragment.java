@@ -10,6 +10,7 @@ import com.jessicardo.theuserentry.model.PersonModel;
 import com.jessicardo.theuserentry.ui.common.interfaces.ListItemSelectedListener;
 import com.jessicardo.theuserentry.ui.common.interfaces.OnCompletionCallback;
 import com.jessicardo.theuserentry.ui.person.activities.PersonDetailActivity;
+import com.jessicardo.theuserentry.ui.person.activities.SignUpScanActivity;
 import com.jessicardo.theuserentry.ui.person.adapters.PersonListAdapter;
 import com.jessicardo.theuserentry.ui.person.fragments.PersonDetailFragment;
 import com.jessicardo.theuserentry.ui.person.viewmodel.PersonInfo;
@@ -120,6 +121,7 @@ public class MainFragment extends BaseFragment {
         updateActionBar();
         loadData();
 
+        mClicked = false;
     }
 
     private void updateActionBar() {
@@ -202,7 +204,7 @@ public class MainFragment extends BaseFragment {
     }
 
     private void launchScanActivity() {
-        //TODO: launch scanning
+        startActivity(SignUpScanActivity.newIntent(getActivity()));
     }
 
     protected void launchAddPersonActivity() {

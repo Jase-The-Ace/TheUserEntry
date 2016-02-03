@@ -31,4 +31,16 @@
     <string name="permission_camera_rationale">Access to the camera is needed for detection</string>
     <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
     <string name="low_storage_error">Face detector dependencies cannot be downloaded due to low device storage</string>
+
+
+    <string name="id">Id</string>
+    <string name="state">State</string>
+    <string name="address">Address</string>
+    <string name="expires">Expires</string>
+    <string name="expired">Expired</string>
+
+    <string name="please_scan_your_drivers_license">Scan the back of your driver\'s license for an easier sign up process.</string>
+    <string name="locate_the_barcode_on_the_back">1. Locate the barcode on the back</string>
+    <string name="align_the_barcode_on_the_red_line">2. Align the barcode on the red line</string>
+
 </resources>

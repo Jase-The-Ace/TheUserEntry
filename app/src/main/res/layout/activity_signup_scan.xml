@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/widget_toolbar"
+            layout="@layout/widget_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <RelativeLayout
+            android:id="@+id/top_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/widget_toolbar"
+            android:background="@color/alabster">
+
+            <com.jessicardo.theuserentry.ui.common.widgets.FontedTextView
+                android:id="@+id/header_text"
+                style="@style/HeaderTitle"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="24dp"
+                android:text="@string/scan_drivers_license" />
+
+            <com.jessicardo.theuserentry.ui.common.widgets.FontedTextView
+                android:id="@+id/desc_text"
+                style="@style/SmallText"
+                android:layout_below="@+id/header_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:text="@string/please_scan_your_drivers_license"
+                android:textSize="16sp" />
+
+            <com.jessicardo.theuserentry.ui.common.widgets.FontedTextView
+                android:id="@+id/one_text"
+                style="@style/SmallText"
+                android:layout_below="@+id/desc_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:text="@string/locate_the_barcode_on_the_back"
+                android:textSize="16sp" />
+
+            <com.jessicardo.theuserentry.ui.common.widgets.FontedTextView
+                android:id="@+id/two_text"
+                style="@style/SmallText"
+                android:layout_below="@+id/one_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="14dp"
+                android:gravity="center"
+                android:text="@string/align_the_barcode_on_the_red_line"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom_section"
+            android:layout_below="@+id/top_view">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:keepScreenOn="true">
+
+                <com.jessicardo.theuserentry.util.googlebarcodescanner.camera.CameraSourcePreview
+                    android:id="@+id/preview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.jessicardo.theuserentry.util.googlebarcodescanner.camera.GraphicOverlay
+                        android:id="@+id/graphic_overlay"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </com.jessicardo.theuserentry.util.googlebarcodescanner.camera.CameraSourcePreview>
+
+
+                <io.codetail.widget.RevealFrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true">
+
+                    <View
+                        android:id="@+id/scan_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:background="@color/red_orange" />
+                </io.codetail.widget.RevealFrameLayout>
+
+                <io.codetail.widget.RevealFrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true">
+
+                    <ImageView
+                        android:id="@+id/torch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="18dp"
+                        android:src="@drawable/bg_flash_on_off_button" />
+                </io.codetail.widget.RevealFrameLayout>
+
+                <View
+                    android:id="@+id/dim_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/black_60pc" />
+
+                <io.codetail.widget.RevealFrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true">
+
+                    <ImageView
+                        android:id="@+id/barcode_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/barcode" />
+                </io.codetail.widget.RevealFrameLayout>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/bottom_section"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/walkthrough_bottom_view_height"
+            android:layout_above="@+id/navigation_bar_view"
+            android:background="@color/alabster"
+            android:paddingLeft="@dimen/bottom_view_left_right_padding"
+            android:paddingRight="@dimen/bottom_view_left_right_padding">
+
+            <com.jessicardo.theuserentry.ui.common.widgets.FontedButton
+                android:id="@+id/cancel_button"
+                style="@style/ButtonWhite"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/btn_white"
+                android:text="@string/cancel" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/scan_info_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/bottom_view"
+            android:background="@color/alabster_85_pc"
+            android:paddingBottom="@dimen/bottom_view_left_right_padding"
+            android:paddingLeft="@dimen/bottom_view_left_right_padding"
+            android:paddingTop="@dimen/bottom_view_left_right_padding">
+
+            <com.jessicardo.theuserentry.ui.common.widgets.FontedTextView
+                android:id="@+id/scan_info_header_text"
+                style="@style/ScanHeaderText"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="2dp"
+                android:gravity="center"
+                android:text="Ryan Jones"
+                android:textColor="@color/deep_cove"
+                android:textSize="@dimen/action_bar_title_text_size" />
+
+            <com.jessicardo.theuserentry.ui.common.widgets.FontedTextView
+                android:id="@+id/scan_info_subtitle_text"
+                style="@style/ScanHeaderText"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/scan_info_header_text"
+                android:layout_marginBottom="2dp"
+                android:gravity="center"
+                android:maxLines="5"
+                tools:text="ID: 123 456 789\nState: New York\nExpires 02-08-2017"
+                android:textSize="@dimen/desc_text_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/bottom_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/scan_bottom_card_height"
+            android:layout_above="@+id/navigation_bar_view"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/re_scan_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/scan_action_button_left_right_margin"
+                android:src="@drawable/bg_camera_retake" />
+
+            <ImageView
+                android:id="@+id/confirm_scan_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/scan_action_button_left_right_margin"
+                android:src="@drawable/bg_camera_confirm" />
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/navigation_bar_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/gulf_blue" />
+
+    </RelativeLayout>
+
+</LinearLayout>

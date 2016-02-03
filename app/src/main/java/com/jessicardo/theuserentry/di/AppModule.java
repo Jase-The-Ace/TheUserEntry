@@ -19,6 +19,7 @@ import com.jessicardo.theuserentry.ui.common.BaseFragment;
 import com.jessicardo.theuserentry.ui.common.MainActivity;
 import com.jessicardo.theuserentry.ui.common.MainFragment;
 import com.jessicardo.theuserentry.ui.person.activities.PersonDetailActivity;
+import com.jessicardo.theuserentry.ui.person.activities.SignUpScanActivity;
 import com.jessicardo.theuserentry.ui.person.fragments.PersonDetailFragment;
 import com.path.android.jobqueue.JobManager;
 
@@ -39,6 +40,7 @@ import de.greenrobot.event.EventBus;
                 EntryActivity.class,
                 MainActivity.class,
                 PersonDetailActivity.class,
+                SignUpScanActivity.class,
                 // Fragments
                 BaseFragment.class,
                 MainFragment.class,

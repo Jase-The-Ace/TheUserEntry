@@ -37,4 +37,8 @@
     <dimen name="walkthrough_bottom_view_height">50dp</dimen>
     <dimen name="contact_pic_image_view_height">100dp</dimen>
 
+    <dimen name="bottom_view_left_right_padding">16dp</dimen>
+    <dimen name="scan_bottom_card_height">120dp</dimen>
+    <dimen name="scan_action_button_left_right_margin">65dp</dimen>
+
 </resources>
