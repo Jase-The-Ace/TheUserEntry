@@ -6,6 +6,7 @@ import com.google.android.gms.vision.MultiProcessor;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
 
 import com.jessicardo.theuserentry.R;
+import com.jessicardo.theuserentry.util.DeviceUtil;
 import com.jessicardo.theuserentry.util.googlebarcodescanner.BarcodeDetectedListener;
 import com.jessicardo.theuserentry.util.googlebarcodescanner.BarcodeGraphic;
 import com.jessicardo.theuserentry.util.googlebarcodescanner.BarcodeTrackerFactory;
@@ -89,6 +90,8 @@ public abstract class ScanBaseActivity extends AbstractBaseActivity {
         boolean autoFocus = true;
         boolean useFlash = false;
 
+        activateSensor();
+
         // Check for the camera permission before accessing the camera.  If the
         // permission is not granted yet, request permission.
         int rc = ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
@@ -102,6 +105,60 @@ public abstract class ScanBaseActivity extends AbstractBaseActivity {
 
     }
 
+    protected void activateSensor() {
+
+        // Obtain references to the SensorManager and the Light Sensor
+        mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        mLightSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+
+        if (mSensorManager.getSensorList(Sensor.TYPE_LIGHT).isEmpty()) {
+            logE("No light sensor");
+        } else {
+            logE("light sensor detected!");
+
+            // Implement a listener to receive updates
+            mSensorEventListener = new SensorEventListener() {
+                @Override
+                public void onSensorChanged(SensorEvent event) {
+                    mLightQuantity = event.values[0];
+
+                    if (!mTapped) {
+                        if (mLightQuantity < getMaxQuantity()) {
+                            if (!isTorchOn()) {
+                                mCameraSource.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+                            }
+                        } else {
+                            if (isTorchOn()) {
+                                mCameraSource.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
+                            }
+                        }
+                        if (getTorchButton() != null) {
+                            getTorchButton().setSelected(isTorchOn());
+                        }
+                    }
+                }
+
+                @Override
+                public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+                }
+            };
+
+            registerSensorListener();
+        }
+    }
+
+    private int getMaxQuantity() {
+        int maxQuantity = 3;
+
+        if (DeviceUtil.isSamsung()) {
+            maxQuantity = 5;
+        }
+        if (DeviceUtil.isHtc()) {
+            maxQuantity = 11;
+        }
+        return maxQuantity;
+    }
 
     private void registerSensorListener() {
         mSensorManager.registerListener(
