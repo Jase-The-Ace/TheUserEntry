@@ -36,6 +36,10 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
+import de.greenrobot.event.EventBus;
+
 
 /**
  * Abstract BaseActivity that contains all the helper methods we need, all activities will subclass
@@ -47,6 +51,9 @@ public abstract class AbstractBaseActivity extends AppCompatActivity {
 
     protected Toolbar mToolbar;
 
+    @Inject
+    protected EventBus mEventBus;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.v("On Create", "On Create ---------->  " + TAG + " <----------  ");
@@ -54,6 +61,20 @@ public abstract class AbstractBaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
     }
+
+    @Override
+    protected void onStart() {
+        Log.v("On Start", "On Start ---------->  " + TAG + " <----------  ");
+        super.onStart();
+        try {
+            // Throws exception if Fragment doesn't contain onEvent method
+            mEventBus.register(this);
+        } catch (Throwable t) {
+            // Uncomment for debugging
+            // Log.d(this.getClass().getSimpleName(), "EventBus Failed to Register: ", t);
+        }
+    }
+
 
     @Override
     protected void onResume() {
@@ -78,6 +99,12 @@ public abstract class AbstractBaseActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         Log.v("On Stop", "On Stop ---------->  " + TAG + " <----------  ");
+        try {
+            mEventBus.unregister(this);
+        } catch (Throwable t) {
+            // Uncomment for debugging
+            // Log.v(TAG, "EventBus Failed to Unregister: ", t);
+        }
     }
 
     @Override

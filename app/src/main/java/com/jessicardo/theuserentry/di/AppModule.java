@@ -7,7 +7,11 @@ import com.jessicardo.theuserentry.ui.common.BaseFragment;
 import com.jessicardo.theuserentry.ui.common.MainActivity;
 import com.jessicardo.theuserentry.ui.common.MainFragment;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
+import dagger.Provides;
+import de.greenrobot.event.EventBus;
 
 // Orders alphabetically in each section
 @Module(
@@ -27,5 +31,11 @@ import dagger.Module;
 public class AppModule {
 
     private static final String TAG = AppModule.class.getSimpleName();
+
+    @Provides
+    @Singleton
+    EventBus provideEventBus() {
+        return EventBus.getDefault();
+    }
 
 }

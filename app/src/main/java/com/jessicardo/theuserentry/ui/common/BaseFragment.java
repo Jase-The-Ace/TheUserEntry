@@ -21,10 +21,16 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
+import de.greenrobot.event.EventBus;
+
 public class BaseFragment extends Fragment implements OnFragmentBackPress {
 
-
     private String TAG = this.getClass().getSimpleName();
+
+    @Inject
+    protected EventBus mEventBus;
 
     public BaseFragment() {
     }
@@ -55,6 +61,31 @@ public class BaseFragment extends Fragment implements OnFragmentBackPress {
      */
     public boolean onFragmentBackPressed() {
         return true;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.v(TAG + ".Lifecycle.onStart", "OnStart");
+        try {
+            // Throws exception if Fragment doesn't contain onEvent method
+            mEventBus.register(this);
+        } catch (Throwable t) {
+            // Uncomment for debugging
+            // Log.d(this.getClass().getSimpleName(), "EventBus Failed to Register: ", t);
+        }
+    }
+
+    @Override
+    public void onStop() {
+        Log.v(TAG + ".Lifecycle.onStop", "OnStop");
+        super.onStop();
+        try {
+            mEventBus.unregister(this);
+        } catch (Throwable t) {
+            // Uncomment for debugging
+            // Log.v(TAG, "EventBus Failed to Unregister: ", t);
+        }
     }
 
     @Override
@@ -123,7 +154,7 @@ public class BaseFragment extends Fragment implements OnFragmentBackPress {
         if (backStackName != null) {
             ft.addToBackStack(backStackName);
         }
-        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         ft.commit();
     }
 
