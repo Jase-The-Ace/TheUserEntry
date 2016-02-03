@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/big_circle"
+        android:layout_width="@dimen/big_circle_width_and_height_default"
+        android:layout_height="@dimen/big_circle_width_and_height_default"
+        android:gravity="center"
+        android:text="A"
+        android:textSize="@dimen/big_circle_text_size_default" />
+
+    <TextView
+        android:id="@+id/small_circle"
+        android:layout_width="@dimen/small_circle_width_and_height_default"
+        android:layout_height="@dimen/small_circle_width_and_height_default"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:text="!"
+        android:visibility="gone"
+        android:textSize="@dimen/small_circle_text_size" />
+</merge>

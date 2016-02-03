@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.jessicardo.theuserentry.ui.common.widgets.CircleViewWithString
+        android:id="@+id/circle_view"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="@dimen/circle_left_right_margin"
+        android:layout_marginRight="@dimen/circle_left_right_margin" />
+
+
+    <com.jessicardo.theuserentry.ui.common.widgets.FontedTextView
+        android:id="@+id/line1_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/contact_row_padding_right"
+        android:layout_toLeftOf="@+id/delete_icon"
+        android:layout_toRightOf="@+id/circle_view"
+        android:singleLine="true"
+        android:textColor="@color/blue_whale"
+        android:textSize="@dimen/line1_text_size"
+        app:fontName="robotoslab_regular"
+        tools:text="Line 1" />
+
+    <com.jessicardo.theuserentry.ui.common.widgets.FontedTextView
+        android:id="@+id/line2_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line1_textview"
+        android:layout_marginRight="@dimen/contact_row_padding_right"
+        android:layout_toLeftOf="@+id/delete_icon"
+        android:layout_toRightOf="@+id/circle_view"
+        android:singleLine="true"
+        android:textColor="@color/blue_whale"
+        android:textSize="@dimen/line2_text_size"
+        app:fontName="robotoslab_regular"
+        tools:text="Line 2" />
+
+    <ImageView
+        android:id="@+id/delete_icon"
+        android:layout_width="40dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_delete_black_48dp" />
+
+</merge>

@@ -8,4 +8,19 @@
     <dimen name="line1_text_size">14sp</dimen>
     <dimen name="line2_text_size">11sp</dimen>
 
+    <!--CircleViewWithString-->
+    <dimen name="big_circle_width_and_height_default">44dp</dimen>
+    <dimen name="big_circle_text_size_default">20sp</dimen>
+    <dimen name="small_circle_width_and_height_default">16dp</dimen>
+    <dimen name="small_circle_margin_left">30dp</dimen>
+    <dimen name="small_circle_margin_right">8dp</dimen>
+    <dimen name="small_circle_text_size">12sp</dimen>
+    <dimen name="desc_text_size">14sp</dimen>
+
+    <dimen name="circle_left_right_margin">17dp</dimen>
+    <dimen name="contact_row_padding_right">5dp</dimen>
+
+    <dimen name="person_list_row_padding">10dp</dimen>
+    <dimen name="footer_progress_view_height">50dp</dimen>
+
 </resources>
