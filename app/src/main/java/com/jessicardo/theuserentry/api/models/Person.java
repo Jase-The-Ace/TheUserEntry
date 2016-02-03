@@ -39,6 +39,15 @@ public class Person extends BaseModel implements Parcelable {
         this.id = id;
     }
 
+    public static Person newPersonWithLicense(DriversLicense license) {
+        Person person = new Person();
+        person.first_name = license.getFirstName();
+        person.last_name = license.getLastName();
+        person.dob = license.getDob();
+        person.zip_code = license.getZipcode();
+        return person;
+    }
+
     public Person(Long id, String first_name, String last_name, String dob, String zip_code) {
         this.id = id;
         this.first_name = first_name;
