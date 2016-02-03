@@ -1,8 +1,11 @@
 package com.jessicardo.theuserentry;
 
+import com.jessicardo.theuserentry.di.AppModule;
 import com.jessicardo.theuserentry.util.HelperUtil;
 
 import android.app.Application;
+
+import dagger.ObjectGraph;
 
 /**
  * Created by Jessicardo.
@@ -13,6 +16,8 @@ public class App extends Application {
 
     private boolean mIsTablet;
 
+    private ObjectGraph mObjectGraph;
+
     public App() {
         sInstance = this;
     }
@@ -21,9 +26,14 @@ public class App extends Application {
         return sInstance;
     }
 
+    public static void injectMembers(Object object) {
+        getInstance().mObjectGraph.inject(object);
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
+        mObjectGraph = ObjectGraph.create(new AppModule());
 
         mIsTablet = HelperUtil.isTablet(this);
 

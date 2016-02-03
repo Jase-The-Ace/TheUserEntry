@@ -1,5 +1,6 @@
 package com.jessicardo.theuserentry.ui.common;
 
+import com.jessicardo.theuserentry.App;
 import com.jessicardo.theuserentry.R;
 import com.jessicardo.theuserentry.ui.common.interfaces.OnFragmentBackPress;
 import com.jessicardo.theuserentry.util.CustomTypefaceSpan;
@@ -12,13 +13,11 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.Vibrator;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.util.Pair;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Spannable;
@@ -47,6 +46,14 @@ public abstract class AbstractBaseActivity extends AppCompatActivity {
     protected String TAG = getClass().getSimpleName();
 
     protected Toolbar mToolbar;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        Log.v("On Create", "On Create ---------->  " + TAG + " <----------  ");
+        App.injectMembers(this);
+        super.onCreate(savedInstanceState);
+
+    }
 
     @Override
     protected void onResume() {
