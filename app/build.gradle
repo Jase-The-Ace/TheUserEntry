@@ -78,4 +78,10 @@ dependencies {
     // need url above "https://jitpack.io"
     compile 'com.github.ozodrukh:CircularReveal:1.0.6@aar'
 
+    // TODO: uncomment and remove manual include once pull request to add custom fonts and divider via code has been merged in and pushed up.
+    // https://github.com/soarcn/BottomSheet/pull/59
+    // https://github.com/soarcn/BottomSheet/pull/60
+    // compile 'com.cocosw:bottomsheet:1.+@aar'
+    compile project(':bottomsheet')
+
 }
