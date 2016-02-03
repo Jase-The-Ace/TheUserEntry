@@ -216,7 +216,7 @@ public class MainFragment extends BaseFragment {
 
             @Override
             protected List<Person> safeDoInBackground(Void... params) {
-                List<Person> persons = mPersonModel.loadAll();
+                List<Person> persons = mPersonModel.loadAllSortedByLastName();
                 return persons;
             }
 
