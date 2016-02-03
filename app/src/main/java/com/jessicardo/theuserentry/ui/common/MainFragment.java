@@ -1,6 +1,7 @@
 package com.jessicardo.theuserentry.ui.common;
 
 import com.jessicardo.theuserentry.R;
+import com.jessicardo.theuserentry.api.controllers.PersonController;
 import com.jessicardo.theuserentry.model.PersonModel;
 
 import android.os.Bundle;
@@ -16,6 +17,9 @@ public class MainFragment extends BaseFragment {
 
     @Inject
     protected PersonModel mPersonModel;
+
+    @Inject
+    protected PersonController mPersonController;
 
     public static MainFragment newInstance() {
         MainFragment fragment = new MainFragment();

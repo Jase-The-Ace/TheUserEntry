@@ -5,6 +5,8 @@ package com.jessicardo.theuserentry.api.models;
 // KEEP INCLUDES - put your custom includes here
 // KEEP INCLUDES END
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -13,6 +15,7 @@ import android.os.Parcelable;
  */
 public class Person extends BaseModel implements Parcelable {
 
+    @JsonIgnoreProperties({"tableName"})
     public static final String TABLE_NAME = Person.class.getSimpleName();
 
     private String first_name;

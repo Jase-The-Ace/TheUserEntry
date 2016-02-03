@@ -10,7 +10,7 @@
 
 - Uses material design to the fullest
 - Uses GreenDao for db
-- Uses Firebase wrapped in OkHttp for persistent API calls (no need for syncing logic)
+- Uses Firebase wrapped in Priority Jobqueue for persistent API calls (no need for syncing logic)
 - Leverages the Google vision API (via play services) for Drivers License Scanning
 - Added my own custom animations
 - Uses Dagger for injections (ouch)
