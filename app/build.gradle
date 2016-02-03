@@ -85,4 +85,6 @@ dependencies {
     // compile 'com.cocosw:bottomsheet:1.+@aar'
     compile project(':bottomsheet')
 
+    compile 'com.google.android.gms:play-services-vision:8.4.0'
+
 }
