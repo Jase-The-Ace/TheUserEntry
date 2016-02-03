@@ -1,5 +1,7 @@
 package com.jessicardo.theuserentry.ui.common;
 
+import com.jessicardo.theuserentry.ui.LifecycleListener;
+import com.jessicardo.theuserentry.ui.LifecycleProvider;
 import com.jessicardo.theuserentry.ui.common.interfaces.OnFragmentBackPress;
 import com.jessicardo.theuserentry.util.HelperUtil;
 
@@ -20,17 +22,21 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArraySet;
 
 import javax.inject.Inject;
 
 import de.greenrobot.event.EventBus;
 
-public class BaseFragment extends Fragment implements OnFragmentBackPress {
+public class BaseFragment extends Fragment implements LifecycleProvider, OnFragmentBackPress {
 
     private String TAG = this.getClass().getSimpleName();
 
     @Inject
     protected EventBus mEventBus;
+
+    private CopyOnWriteArraySet<LifecycleListener> mLifecycleListeners
+            = new CopyOnWriteArraySet<LifecycleListener>();
 
     public BaseFragment() {
     }
@@ -66,6 +72,9 @@ public class BaseFragment extends Fragment implements OnFragmentBackPress {
     @Override
     public void onStart() {
         super.onStart();
+        for (LifecycleListener listener : mLifecycleListeners) {
+            listener.onStart();
+        }
         Log.v(TAG + ".Lifecycle.onStart", "OnStart");
         try {
             // Throws exception if Fragment doesn't contain onEvent method
@@ -78,6 +87,9 @@ public class BaseFragment extends Fragment implements OnFragmentBackPress {
 
     @Override
     public void onStop() {
+        for (LifecycleListener listener : mLifecycleListeners) {
+            listener.onStop();
+        }
         Log.v(TAG + ".Lifecycle.onStop", "OnStop");
         super.onStop();
         try {
@@ -180,6 +192,16 @@ public class BaseFragment extends Fragment implements OnFragmentBackPress {
 
     public boolean isPostLollipop() {
         return HelperUtil.isPostLollipop();
+    }
+
+    @Override
+    public void registerLifcycleListener(LifecycleListener listener) {
+        mLifecycleListeners.add(listener);
+    }
+
+    @Override
+    public void unregisterLifcycleListener(LifecycleListener listener) {
+        mLifecycleListeners.remove(listener);
     }
 
     protected void hideKeyboard() {
