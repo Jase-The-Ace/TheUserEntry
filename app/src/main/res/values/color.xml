@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="black_30pc">#1e000000</color>
+    <color name="black_60pc">#99000000</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- Material Colors -->
+    <color name="color_primary">@color/material_brown_500</color>
+    <color name="color_primary_dark">@color/material_brown_700</color>
+    <color name="color_accent">@color/flamingo</color>
+
+    <color name="material_brown_500">#795548</color>
+    <color name="material_brown_700">#5D4037</color>
+    <color name="material_brown_200">#BCAAA4</color>
+
+    <color name="web_orange">#ECA701</color>
+    <color name="flamingo">#EF5443</color>
+    <color name="picton_blue">#55ACEE</color>
+    <color name="burnt_sienna">#EC685B</color>
+    <color name="gulf_blue">#031463</color>
+    <color name="blue_whale">#062744</color>
+    <color name="saffron">#F5BF3B</color>
+    <color name="mercury">#E9E9E9</color>
+    <color name="black_haze">#F0F2F2</color>
+    <color name="mercury_1">#E2E2E2</color>
+    <color name="burnt_sienna_87pc">#DDEC685B</color>
+    <color name="saffron_1">#F6BF3B</color>
+    <color name="chambray">#3B5998</color>
+    <color name="chambray_86pc">#DB3B5898</color>
+    <color name="picton_blue_75pc">#BF55ACEE</color>
+    <color name="thunderbird">#CD201F</color>
+    <color name="thunderbird_78pc">#C6CD1F1F</color>
+    <color name="deep_cerulean">#0077B5</color>
+    <color name="deep_cerulean_75pc">#BF0076B5</color>
+    <color name="punch">#DD4B39</color>
+    <color name="punch_86pc">#DBDD4B38</color>
+    <color name="white">#ffffff</color>
+    <color name="white_14_pc">#24ffffff</color>
+    <color name="white_75pc">#BFFFFFFF</color>
+    <color name="alabster">#FAFAFA</color>
+    <color name="alabster_85_pc">#D9FAFAFA</color>
+    <color name="alto">#D8D8D8</color>
+    <color name="deep_cove">#052038</color>
+    <color name="tiara">#C7D3D3</color>
+    <color name="carmine">#B00016</color>
+    <color name="mojo">#C64234</color>
+    <color name="nevada">#6E7172</color>
+    <color name="red_orange">#FF2B2B</color>
+    <color name="snackbar_color">#EF5443</color>
+    <color name="botticelli">#D9E9EE</color>
+    <color name="silver">#C0C0C0</color>
+    <color name="silver_25pc">#40C0C0C0</color>
+    <color name="selago">#E7F3FC</color>
+    <color name="thatch_15pc">#268AB4A2</color>
+    <color name="aqua_haze">#E0EEEE</color>
+    <color name="pigeon_post_70pc">#B3ABC6DC</color>
+    <color name="black_100_opacity">#64000000</color>
+    <color name="blue_whale_50pc">#7f062744</color>
+    <color name="pickled_bluewood">#34495E</color>
+    <color name="pickled_bluewood_50pc">#8034495E</color>
+    <color name="pickled_bluewood_15pc">#2634495E</color>
+    <color name="pickled_bluewood_10pc">#1A34495E</color>
+    <color name="pickled_bluewood_5pc">#0D34495E</color>
+
+
+    <!-- Opacity in Hex
+    100% — FF
+    95% — F2
+    90% — E6
+    85% — D9
+    80% — CC
+    75% — BF
+    70% — B3
+    65% — A6
+    60% — 99
+    55% — 8C
+    50% — 80
+    45% — 73
+    40% — 66
+    35% — 59
+    30% — 4D
+    25% — 40
+    20% — 33
+    15% — 26
+    10% — 1A
+    5% — 0D
+    0% — 00 -->
+</resources>

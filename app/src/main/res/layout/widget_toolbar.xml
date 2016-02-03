@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/status_bar_view"
+        android:layout_width="match_parent"
+        android:background="@color/color_primary"
+        android:layout_height="0dp" />
+
+    <View
+        android:id="@+id/status_bar_tint_view"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:background="@color/white_14_pc"
+        android:layout_height="0dp" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_below="@+id/status_bar_view"
+        style="@style/ToolBarStyle" />
+
+</RelativeLayout>

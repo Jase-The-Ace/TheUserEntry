@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TheUserEntry</string>
+    <string name="home">Home (By Jesse Aboh)</string>
+    <string name="splash_text">Welcome!</string>
 </resources>

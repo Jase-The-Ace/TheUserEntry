@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FontedTextView">
+        <!-- This is mapped directly to the FontType.  If changes are made here, it should be made in FontType as well -->
+        <attr name="fontName">
+            <enum name="baramond" value="0" />
+            <enum name="baramond_bold" value="1" />
+            <enum name="baramond_bold_italic" value="2" />
+            <enum name="baramond_italic" value="3" />
+            <enum name="robotoslab_bold" value="4" />
+            <enum name="robotoslab_light" value="5" />
+            <enum name="robotoslab_regular" value="6" />
+            <enum name="robotoslab_thin" value="7" />
+        </attr>
+    </declare-styleable>
+
+</resources>
