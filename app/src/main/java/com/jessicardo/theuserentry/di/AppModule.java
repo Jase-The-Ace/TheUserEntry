@@ -1,6 +1,8 @@
 package com.jessicardo.theuserentry.di;
 
 
+import com.jessicardo.theuserentry.db.DbHelper;
+import com.jessicardo.theuserentry.dbgen.DaoSession;
 import com.jessicardo.theuserentry.ui.EntryActivity;
 import com.jessicardo.theuserentry.ui.common.AbstractBaseActivity;
 import com.jessicardo.theuserentry.ui.common.BaseFragment;
@@ -36,6 +38,11 @@ public class AppModule {
     @Singleton
     EventBus provideEventBus() {
         return EventBus.getDefault();
+    }
+
+    @Provides
+    DaoSession provideDaoSession(DbHelper dbHelper) {
+        return dbHelper.getDaoSession();
     }
 
 }

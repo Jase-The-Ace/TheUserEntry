@@ -1,16 +1,21 @@
 package com.jessicardo.theuserentry.ui.common;
 
 import com.jessicardo.theuserentry.R;
+import com.jessicardo.theuserentry.model.PersonModel;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import javax.inject.Inject;
+
 public class MainFragment extends BaseFragment {
 
     private View mView;
 
+    @Inject
+    protected PersonModel mPersonModel;
 
     public static MainFragment newInstance() {
         MainFragment fragment = new MainFragment();
