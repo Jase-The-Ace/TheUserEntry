@@ -40,12 +40,6 @@ import butterknife.OnClick;
 
 public class SignUpScanActivity extends ScanBaseActivity {
 
-    private static final String PARAMS_REFERRAL = "params_referral";
-
-    private static final String PARAMS_DRIVERS_LICENSE = "params_drivers_license";
-
-    private static final int RC_SCAN_ENTRY = 2;
-
     protected String TAG = getClass().getSimpleName();
 
     @Inject
@@ -169,7 +163,6 @@ public class SignUpScanActivity extends ScanBaseActivity {
     @OnClick(R.id.confirm_scan_button)
     public void done() {
         mDriversLicense = mScannedLicense;
-        setResult(Activity.RESULT_OK);
 
         if (mDriversLicense != null) {
             Person person = Person.newPersonWithLicense(mDriversLicense);
@@ -354,16 +347,6 @@ public class SignUpScanActivity extends ScanBaseActivity {
         driversLicense.setZipcode(barcode.driverLicense.addressZip);
         driversLicense.setDob(barcode.driverLicense.birthDate);
         mScannedLicense = driversLicense;
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        Bundle extras = data != null ? data.getExtras() : null;
-        if (requestCode == RC_SCAN_ENTRY) {
-            setResult(resultCode);
-            finish();
-        }
     }
 
     protected void initToolbar() {
