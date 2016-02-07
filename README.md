@@ -2,6 +2,9 @@
 
 # The User Entry.
 
+####Master branch build status: 
+![](https://travis-ci.org/Jessicardo/TheUserEntry.svg?branch=master)
+
 ## How sophisticated can a user entry app be?
 
 ### You tell me.
